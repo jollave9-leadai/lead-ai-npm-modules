@@ -1,0 +1,21 @@
+{
+  "name": "lead-ai-npm-modules",
+  "version": "1.0.0",
+  "description": "A reusable TypeScript module for Lead AI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "lead-ai"
+  ],
+  "author": "Lead AI",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
