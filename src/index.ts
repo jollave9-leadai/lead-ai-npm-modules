@@ -144,6 +144,7 @@ export const initiateCallUsingRecentActiveAgent = async (
   return response;
 };
 
+// TODO: to support dynamic from number and messaging_profile_id
 export const sendSMS = async (
   phone_number: string,
   smsBody: string,
