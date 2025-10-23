@@ -176,7 +176,7 @@ export const sendSMS = async (
 };
 
 // Helper: encode email to base64url
-const createEmailRaw = (
+export const createEmailRaw = (
   to: string,
   from: string,
   subject: string,
@@ -196,7 +196,7 @@ const createEmailRaw = (
 };
 
 // Helper: refresh token for email
-const handleRefreshToken = async (
+export const handleRefreshToken = async (
   refreshToken: string,
   provider: string,
   microsoftClientId: string,
@@ -262,7 +262,8 @@ const handleRefreshToken = async (
 export async function sendOutlookMail(
   accessToken: string,
   email: string,
-  emailBody: string
+  emailBody: string,
+  subject?: string
 ) {
   const client = Client.init({
     authProvider: (done) => {
@@ -272,7 +273,7 @@ export async function sendOutlookMail(
 
   await client.api("/me/sendMail").post({
     message: {
-      subject: "From LeadAI!",
+      subject: subject || "From LeadAI!",
       body: {
         contentType: "Text",
         content: emailBody,
@@ -289,11 +290,12 @@ export async function sendOutlookMail(
   return "Email from outlook sent successfully";
 }
 
-const sendGmail = async (
+export const sendGmail = async (
   accessToken: string,
   toEmail: string,
   fromEmail: string,
-  emailBody: string
+  emailBody: string,
+  subject?: string
 ) => {
   const { google } = await import("googleapis");
 
@@ -305,7 +307,7 @@ const sendGmail = async (
   const rawMessage = createEmailRaw(
     toEmail,
     fromEmail,
-    "From LeadAI!",
+    subject || "From LeadAI!",
     emailBody
   );
 
