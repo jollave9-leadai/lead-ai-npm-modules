@@ -8,6 +8,7 @@ export interface VapiIntegration {
       language: string;
     };
     voice: {
+      voiceId: string;
       provider: string;
       model: string;
       language: string;
@@ -53,4 +54,5 @@ export interface VapiIntegration {
     };
     temperature: number;
     maxToken: number;
+    auth_token: string;
   }
