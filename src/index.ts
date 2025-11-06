@@ -4,6 +4,9 @@ import { createClient } from "@supabase/supabase-js";
 import { Client } from "@microsoft/microsoft-graph-client";
 import { VapiIntegration } from "./types";
 
+// Export types for consumers
+export type { VapiIntegration } from "./types";
+
 export const initiateCall = async (
   phoneCallPayload: Record<string, unknown>,
   authToken: string
