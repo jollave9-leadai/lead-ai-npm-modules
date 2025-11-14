@@ -227,6 +227,7 @@ export const handleRefreshToken = async (
     newExpiresAt = now + response.expires_in;
   }
 
+  console.log(newExpiresAt, "newExpiresAt")
   return {
     access_token: newAccessToken,
     refresh_token: newRefreshToken,
