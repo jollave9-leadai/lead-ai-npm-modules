@@ -207,6 +207,9 @@ export const handleRefreshToken = async (
     newAccessToken = response.access_token;
     newRefreshToken = response.refresh_token;
     const now = Math.floor(Date.now() / 1000);
+    console.log("response", response);
+    console.log("Date.now()", Date.now());
+    console.log("now : Math.floor(Date.now() / 1000)", now);
     newExpiresAt = now + response.expires_in;
   } else {
     const response = await fetch("https://oauth2.googleapis.com/token", {
@@ -224,10 +227,13 @@ export const handleRefreshToken = async (
     newAccessToken = response.access_token;
     newRefreshToken = response.refresh_token;
     const now = Math.floor(Date.now() / 1000);
+    console.log("response", response);
+    console.log("Date.now()", Date.now());
+    console.log("now : Math.floor(Date.now() / 1000)", now);
     newExpiresAt = now + response.expires_in;
   }
 
-  console.log(newExpiresAt, "newExpiresAt")
+  console.log("newExpiresAt", newExpiresAt);
   return {
     access_token: newAccessToken,
     refresh_token: newRefreshToken,
